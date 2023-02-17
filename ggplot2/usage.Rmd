@@ -1,0 +1,67 @@
+---
+title: "Usage of My GGplot Functions"
+output: html_document
+fig_width: 5
+fig_height: 4 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## How to use my ggplot2 functions
+
+```{r}
+library(tidyverse)
+source("ggthemeify.R")
+source("my_ggplots.R")
+source("my_theme.R")
+```
+
+### Create a Color Scale using ggthemeify
+
+```{r cars}
+my_colors <- c(
+  `skyblue`     = "#0487D9",
+  `greenlight`  = "#97BF04",
+  `orange`      = "#F2913D",
+  `darkbrown`   = "#8C6C5A",
+  `bluelagoon`  = "#04AAB8",
+  `darkorange`  = "#F2622E",
+  `pink`        = "#BF9595",
+  `greendark`   = "#4F7302",
+  `bluesea`     = "#0388A6",
+  `duskyblue`   = "#6C7D8C",
+  `brown`       = "#D98452")
+
+main <- c("skyblue", "greenlight", "orange", "darkbrown", "bluelagoon", 
+          "darkorange", "pink", "greendark", "bluesea")
+highlight <- c("darkbrown", "pink")
+my_scales <- ggthemeify(mytheme_colors, main, highlight)
+scales::show_col(myggtheme$mytheme_palette("main"))
+
+```
+
+## Custom Scales and Theme
+
+```{r}
+starwars %>% 
+  filter(species == "Human") %>% 
+  ggplot(aes(height, mass,fill=skin_color)) + 
+  my_area_plot() + 
+  my_scales$scale_fill_mytheme() + # Add fill from my scales
+  my_theme # add my theme
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
