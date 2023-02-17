@@ -1,2 +1,7 @@
 # r-utils
-Utilities that are useful within R
+
+My personal r utility library.
+
+## Structure
+
+Specific libraries will be split into sub-directories (for example ggplot2). Each sub-directory will have a `_usage.Rmd` notebook explaining how to use the functions.
